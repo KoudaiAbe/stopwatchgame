@@ -69,5 +69,6 @@ reset.addEventListener("click", () => {
 
 //得点ロジック
 const point = () =>{
+	
 
 };
