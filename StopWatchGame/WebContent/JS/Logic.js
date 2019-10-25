@@ -5,6 +5,7 @@ const timer = document.getElementById("timer");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
+const point = document.getElementById("point");
 
 //経過時間を保存する変数（単位:ミリ秒）
 let elapsedTime;
@@ -65,3 +66,8 @@ reset.addEventListener("click", () => {
 	// 00:00:000 を表示
 	updateTimeText();
 });
+
+//得点ロジック
+const point = () =>{
+
+};
