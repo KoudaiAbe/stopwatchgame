@@ -68,14 +68,21 @@ reset.addEventListener("click", () => {
 
 
 //得点計算
-document.getElementById("start").onclick = function(x){
-	x = b_start.getTime();
+var sTime = null;
+
+function startButton(){
+	sTime = new Data();
 };
 
-document.getElementById("stop").onclick = function(y){
-	y = b_stop.getTime();
-	timepoint = y - x
-	document.getElementById("point").innerHTML = timepoint;
+function endButton(){
+	var eTime = new Data();
+	if(sTime == null){
+		document.getElementById("point").innerHTML = "start";
+	}else{
+		var x = eTime.getTime() - sTime.getTime();
+		var point = document.getElemntById("point");
+		point.innerHTML = x;
+	};
 };
 
 //得点リセット
