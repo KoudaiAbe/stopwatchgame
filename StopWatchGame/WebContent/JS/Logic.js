@@ -1,11 +1,10 @@
 /**
- *
+ *時間表示と得点ロジック
  */
 const timer = document.getElementById("timer");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
-const point = document.getElementById("point");
 
 //経過時間を保存する変数（単位:ミリ秒）
 let elapsedTime;
@@ -54,9 +53,9 @@ start.addEventListener("click", () => {
 stop.addEventListener("click", () => {
 	clearTimeout(timerId);
 	timeToAdd += Date.now() - startTime;
-	// スタートボタンを有効化
+	//スタートボタンを有効化
 	start.disabled = false;
-	// ストップボタンを無効化
+	//ストップボタンを無効化　
 	stop.disabled = true;
 });
 
@@ -67,8 +66,19 @@ reset.addEventListener("click", () => {
 	updateTimeText();
 });
 
-//得点ロジック
-const point = () =>{
-	
 
+//得点計算
+document.getElementById("start").onclick = function(x){
+	x = b_start.getTime();
+};
+
+document.getElementById("stop").onclick = function(y){
+	y = b_stop.getTime();
+	timepoint = y - x
+	document.getElementById("point").innerHTML = timepoint;
+};
+
+//得点リセット
+document.getElementById("reset").onclick = function(){
+	document.getElementById("point").innerHTML = "";
 };
