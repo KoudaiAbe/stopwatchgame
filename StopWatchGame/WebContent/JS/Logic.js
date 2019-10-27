@@ -29,7 +29,7 @@ const updateTimeText = () => {
 	s = `0${s}`.slice(-2);
 	ms = `00${ms}`.slice(-3);
 
-	timer.textContent = `${m}:${s}:${ms}`;
+	//timer.textContent = `${m}:${s}:${ms}`;
 };
 
 //経過時間の管理と計算を行う関数
@@ -59,31 +59,54 @@ stop.addEventListener("click", () => {
 	stop.disabled = true;
 });
 
-reset.addEventListener("click", () => {
-	elapsedTime = 0;
-	timeToAdd = 0;
-	// 00:00:000 を表示
-	updateTimeText();
-});
+//reset.addEventListener("click", () => {
+//	elapsedTime = 0;
+//	timeToAdd = 0;
+//	// 00:00:000 を表示
+//	updateTimeText();
+//});
 
 
 //得点計算
-var sTime = null;
+(function(){
+	'use strict';
 
-function startButton(){
-	sTime = new Data();
-};
+	var start = document.getElementById('start');
+	var stop = document.getElementById('stop');
+	var result = document.getElementById('point');
+	var startTime;
+	var isStarted = false;
 
-function endButton(){
-	var eTime = new Data();
-	if(sTime == null){
-		document.getElementById("point").innerHTML = "start";
-	}else{
-		var x = eTime.getTime() - sTime.getTime();
-		var point = document.getElemntById("point");
-		point.innerHTML = x;
-	};
-};
+	start.addEventListener('click', function(){
+		if(isStarted === true){
+			return;
+		}
+		isStarted = true;
+		startTime = Date.now();
+		this.className = 'pushed';
+		stop.className = '';
+		point.textContent = '0.000';
+		point.className = 'stanby';
+	});
+
+	stop.addEventListener('click', function(){
+		var elapsedTime;
+		var diff;
+		if(isStarted === false){
+			return;
+		}
+		isStarted = false;
+		elapsedTime = (Date.now() - startTime) / 1000;
+		point.textContent = elapsedTime.toFixed(3);
+		this.className = 'pushed';
+		point.className = '';
+		//ピッタリ
+		diff = elapsedTime - 10.0;
+		if(diff > -1.0 && diff < 1.0){
+			point.className = "perfect";
+		}
+	});
+})();
 
 //得点リセット
 document.getElementById("reset").onclick = function(){
