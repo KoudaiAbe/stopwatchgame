@@ -8,6 +8,7 @@
 <body>
 	<div class="container">
 		<h1>10秒ピッタリで止めろ！</h1>
+		<!--  
 		<h2>難しさ</h2>
 		<select name="level">
 			<option id="level1" value="level1">レベル１</option>
@@ -15,10 +16,13 @@
 			<option id="level3" value="level3">レベル３</option>
 		</select>
 		<div id="timer">00: 00:000</div>
+		-->
+		<div id="target">10.000</div>
 		<button id="start" onclick="startButton">start</button>
 		<button id="stop" onclick="endButton" disabled>stop</button>
 		<button id="reset">reset</button>
-		<p id="point"></p>
+		<p>結果</p>
+		<div id="point" class="standby">0.000</div>
 		<script src="JS/Logic.js"></script>
 	</div>
 </body>
