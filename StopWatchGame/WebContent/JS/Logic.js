@@ -1,5 +1,5 @@
 /**
- *時間表示と得点ロジック
+ *
  */
 const timer = document.getElementById("timer");
 const start = document.getElementById("start");
