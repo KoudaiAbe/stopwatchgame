@@ -59,14 +59,6 @@ stop.addEventListener("click", () => {
 	stop.disabled = true;
 });
 
-//reset.addEventListener("click", () => {
-//	elapsedTime = 0;
-//	timeToAdd = 0;
-//	// 00:00:000 を表示
-//	updateTimeText();
-//});
-
-
 //得点計算
 (function(){
 	'use strict';
@@ -85,7 +77,7 @@ stop.addEventListener("click", () => {
 		startTime = Date.now();
 		this.className = 'pushed';
 		stop.className = '';
-		point.textContent = '0.000';
+		point.textContent = '0.00';
 		point.className = 'stanby';
 	});
 
@@ -97,9 +89,20 @@ stop.addEventListener("click", () => {
 		}
 		isStarted = false;
 		elapsedTime = (Date.now() - startTime) / 1000;
-		point.textContent = elapsedTime.toFixed(3);
+		point.textContent = elapsedTime.toFixed(2);
 		this.className = 'pushed';
 		point.className = '';
+		
+//		if (elapsedTime == 10.00){
+//			point.className = "100"
+//		}else if(11.00 > elapsedTime > 10.00 && 10.00 > elapsedTime > 9.00){
+//			point.className = "90"
+//		}else if(15.00 > elapsedTime > 11.00 && 9.00 > elapsedTime > 5.00){
+//			point.className = "75"
+//		}else{
+//			point.className = "50"
+//		}
+		
 		//ピッタリ
 		diff = elapsedTime - 10.0;
 		if(diff > -1.0 && diff < 1.0){
