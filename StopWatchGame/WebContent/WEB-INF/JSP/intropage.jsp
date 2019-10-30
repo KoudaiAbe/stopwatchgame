@@ -7,6 +7,7 @@
 <title>カウントダウンゲームの紹介</title>
 </head>
 <body>
-
+<!-- ヘッダーへのリンク -->
+<jsp:include page="/HEADER.html"/>
 </body>
 </html>
