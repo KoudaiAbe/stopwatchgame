@@ -12,6 +12,14 @@
 <body>
 	<jsp:include page="/HEADER.html"/>
 	<div class="backGround"></div>
+	
+	<div class="topText">
+		<h1 style="font-size: 4em;">カウントゲームへようこそ！</h1>
+		<p>
+		
+		</p>
+	</div>
+	
 
 </body>
 </html>
